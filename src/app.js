@@ -9,14 +9,16 @@
 console.log("App.js is running!");
 
 var app = {
-	title: "My React App",
-	subtitle: "Hello User!"
+	title: "Indecision App",
+	subtitle: "Put your life in the hands of computer",
+	options: ["One", "Two"]
 };
 
 var template = (
 	<div>
 		<h1>{app.title}</h1>
-		<p>{app.subtitle}</p>
+		{app.subtitle && <p>{app.subtitle}</p>}
+		<p>{app.options.length > 0 ? "Here are your options:" : "No options"}</p>
 		<ol>
 			<li>Item One</li>
 			<li>Item Two</li>
@@ -46,4 +48,4 @@ var templateTwo = (
 
 var appRoot = document.getElementById("app");
 
-ReactDOM.render(templateTwo, appRoot);
+ReactDOM.render(template, appRoot);
