@@ -8,30 +8,36 @@
 
 console.log("App.js is running!");
 
+var app = {
+	title: "My React App",
+	subtitle: "Hello User!"
+};
+
 var template = (
 	<div>
-		<h1>Indecision App</h1>
-		<p>This is some information</p>
+		<h1>{app.title}</h1>
+		<p>{app.subtitle}</p>
 		<ol>
 			<li>Item One</li>
 			<li>Item Two</li>
-			<li>Item Three</li>
 		</ol>
 	</div>
 );
 
-var userName = "Andrew";
-var userAge = "26";
-var userLocation = "New York";
+var user = {
+	name: "Iqbal Pakeh",
+	age: 34,
+	location: "Singapore"
+};
 
 var templateTwo = (
 	<div>
-		<h1>{userName}</h1>
-		<p>Age: {userAge}</p>
-		<p>Location: {userLocation}</p>
+		<h1>{user.name}</h1>
+		<p>Age: {user.age}</p>
+		<p>Location: {user.location}</p>
 	</div>
 );
 
 var appRoot = document.getElementById("app");
 
-ReactDOM.render(templateTwo, appRoot);
+ReactDOM.render(template, appRoot);
