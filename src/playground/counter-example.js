@@ -1,0 +1,36 @@
+const appRoot = document.getElementById("app");
+
+var count = 0;
+
+var addOne = function addOne() {
+	count = count + 1;
+	renderCounterApp();
+};
+
+var minusOne = function minusOne() {
+	count = count - 1;
+	renderCounterApp();
+};
+
+var reset = function reset() {
+	count = 0;
+	renderCounterApp();
+};
+
+/**
+ * React doesn't have built-in data binding. Thus, if data change, we need
+ * to rerender the application manually!!
+ */
+var renderCounterApp = function renderCounterApp() {
+	var templateTwo = React.createElement(
+		"div",
+		null,
+		React.createElement("h1", null, "Count: ", count),
+		React.createElement("button", { onClick: addOne }, "+1"),
+		React.createElement("button", { onClick: minusOne }, "-1"),
+		React.createElement("button", { onClick: reset }, "reset")
+	);
+	ReactDOM.render(templateTwo, appRoot);
+};
+
+renderCounterApp();
