@@ -1,30 +1,26 @@
-const appRoot = document.getElementById("app");
+let visibility = false;
 
-let buttonMessage = "Show details";
-
-const onChangeState = () => {
-	if (buttonMessage === "Show details") {
-		buttonMessage = "Hide details";
-	} else {
-		buttonMessage = "Show details";
-	}
+const toggleVisibility = () => {
+	visibility = !visibility;
 	render();
 };
 
 const render = () => {
-	const template = (
+	const jsx = (
 		<div>
 			<h1>Visibility Toggle</h1>
-			<button onClick={onChangeState}>{buttonMessage}</button>
-			{buttonMessage === "Hide details" ? (
-				<p>Here's some details for you!</p>
-			) : (
-				undefined
+			<button onClick={toggleVisibility}>
+				{visibility ? "Hide details" : "Show details"}
+			</button>
+			{visibility && (
+				<div>
+					<p>Hi, here's some details for you</p>
+				</div>
 			)}
 		</div>
 	);
 
-	ReactDOM.render(template, appRoot);
+	ReactDOM.render(jsx, document.getElementById("app"));
 };
 
 render();
