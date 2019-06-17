@@ -36,15 +36,40 @@ class Student extends Person {
 	}
 }
 
+class Traveler extends Person {
+	constructor(name, age, homeLocation) {
+		super(name, age);
+		this.homeLocation = homeLocation;
+	}
+
+	hasHomeLocation() {
+		return !!this.homeLocation;
+	}
+
+	getGreeting() {
+		let greeting = super.getGreeting();
+		if (this.hasHomeLocation()) {
+			greeting += ` I'm visiting from ${this.homeLocation}`;
+		}
+		return greeting;
+	}
+}
+
 // ------------------------------------------------------------------
 // Class usage
 // ------------------------------------------------------------------
 
-const me = new Student("Iqbal Pakeh", 34, "Electrical Engineering");
-console.log(me.getDescription());
+const me = new Traveler("Iqbal Pakeh", 34, "Singapore");
+console.log(me.getGreeting());
 
-const other = new Student();
-console.log(other.getDescription());
+const other = new Traveler();
+console.log(other.getGreeting());
+
+// const me = new Student("Iqbal Pakeh", 34, "Electrical Engineering");
+// console.log(me.getDescription());
+
+// const other = new Student();
+// console.log(other.getDescription());
 
 // const me = new Person("Iqbal Pakeh", 34);
 // console.log(me.getGreeting());
