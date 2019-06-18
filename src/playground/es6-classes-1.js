@@ -42,13 +42,9 @@ class Traveler extends Person {
 		this.homeLocation = homeLocation;
 	}
 
-	hasHomeLocation() {
-		return !!this.homeLocation;
-	}
-
 	getGreeting() {
 		let greeting = super.getGreeting();
-		if (this.hasHomeLocation()) {
+		if (this.homeLocation) {
 			greeting += ` I'm visiting from ${this.homeLocation}`;
 		}
 		return greeting;
@@ -62,7 +58,7 @@ class Traveler extends Person {
 const me = new Traveler("Iqbal Pakeh", 34, "Singapore");
 console.log(me.getGreeting());
 
-const other = new Traveler();
+const other = new Traveler(undefined, undefined, "Nowhere");
 console.log(other.getGreeting());
 
 // const me = new Student("Iqbal Pakeh", 34, "Electrical Engineering");
