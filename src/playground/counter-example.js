@@ -12,14 +12,17 @@ class Counter extends React.Component {
 	}
 
 	componentDidMount() {
-		const count = parseInt(localStorage.getItem("count"), 10);
+		const stringCount = localStorage.getItem("count");
+		const count = parseInt(stringCount, 10);
 		if (!isNaN(count)) {
 			this.setState(() => ({ count }));
 		}
 	}
 
 	componentDidUpdate(prevProps, prevState) {
-		localStorage.setItem("count", this.state.count);
+		if (prevState.count !== this.state.count) {
+			localStorage.setItem("count", this.state.count);
+		}
 	}
 
 	handleAddOne() {
