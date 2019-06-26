@@ -5,6 +5,7 @@ const OptionModal = props => {
 	return (
 		<Modal isOpen={!!props.selectedOption} contentLabel="Selected Option">
 			<h3>Selected Option</h3>
+			{props.selectedOption && <p>{props.selectedOption}</p>}
 		</Modal>
 	);
 };
