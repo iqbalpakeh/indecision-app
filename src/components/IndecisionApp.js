@@ -12,11 +12,9 @@ export default class IndecisionApp extends React.Component {
 	};
 
 	handleClearSelectedOption = () => {
-		this.setState(() => {
-			return {
-				selectedOption: undefined
-			};
-		});
+		this.setState(() => ({
+			selectedOption: undefined
+		}));
 	};
 
 	handleDeleteOptions = () => {
