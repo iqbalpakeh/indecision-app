@@ -1,5 +1,4 @@
 import React from "react";
-
 import AddOption from "./AddOption";
 import Options from "./Options";
 import Header from "./Header";
@@ -12,7 +11,7 @@ export default class IndecisionApp extends React.Component {
 		selectedOption: undefined
 	};
 
-	handleModalButton = () => {
+	handleClearSelectedOption = () => {
 		this.setState(() => {
 			return {
 				selectedOption: undefined
@@ -88,7 +87,7 @@ export default class IndecisionApp extends React.Component {
 				<AddOption handleAddOption={this.handleAddOption} />
 				<OptionModal
 					selectedOption={this.state.selectedOption}
-					handleModalButton={this.handleModalButton}
+					handleClearSelectedOption={this.handleClearSelectedOption}
 				/>
 			</div>
 		);
